@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Stock SportAr</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="header"><header><img class="logo" src="img/logo.png" alt=""></header> </div>
+    <nav class="menu">
+        <p class="navi"><a href="https://matuthe.github.io/23036Grupo19/index.html">INICIO</a></p>
+        <p class="navi"><a href="https://matuthe.github.io/23036Grupo19/htlm/galeria.html">GALERIA</a></p>
+        <p class="navi"><a href="https://matuthe.github.io/23036Grupo19/faq.html">FAQ</a></p>
+        <p class="navi"><a href="https://matuthe.github.io/23036Grupo19/contacto.html">CONTACTO</a></p>
+    </nav>
+    <main>
+        <br>
+        <br>
+        <div id="app" class="container">
+            <h1>Administración de stock - SportAr</h1>
+            <br>
+            <h2>Listado de artículos</h2>
+
+            <a  class="btn btn-primary" href="articulo_nuevo.html">Nuevo</a>
+         
+            <!-- <span>Filtrar por Categoria: {{ selected }}</span>
+            <select v-model="selected">
+                <option value="">Todas</option>
+                <option>Indumentaria</option>
+                <option>Calzado</option>
+                <option>Accesorios</option>
+            </select> -->
+           
+            <br><br>
+            <div v-if="error">
+                <p>Error al cargar base de datos</p>
+            </div>
+            <div v-else>
+                <section v-if="cargando">
+                    <div class="spinner-border"></div>
+                    <p>Cargando su base de datos</p>
+                </section>
+                <section v-else>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Categoría</th>
+                                    <th scope="col">Sub-Categoría</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Cuotas</th>
+                                    <th scope="col">Descuento</th>
+                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class=""  v-for="articulo in articulos">
+                                    <td scope="row">{{articulo.id}}</td>
+                                    <td>{{articulo.titulo}}</td>
+                                    <td>{{articulo.descripcion}}</td>
+                                    <td>{{articulo.category}}</td>
+                                    <td>{{articulo.subcategory}}</td>
+                                    <td>{{articulo.precio}}</td>
+                                    <td>{{articulo.cantidad}}</td>
+                                    <td>{{articulo.cuotas}}</td>
+                                    <td>{{articulo.descuento}}</td>
+                                    <!-- <td>{{articulo.image}}</td>  -->
+                                    <td>
+                                        <img width="60"  :src="articulo.image" :alt="articulo.titulo">
+                                    </td>
+                                    <td>
+                    			<a class="btn btn-primary" :href="'articulo_update.html?id='+ articulo.id" >Editar</a>
+                                      <button type="button" class="btn btn-danger" v-on:click="eliminar(articulo.id)" >Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="derechos">Página creada por el grupo 19, comision 23036 Codo a Codo. Todos los derechos reservados &copy;</p>
+    </footer>
+    <script 
+Link de Bootstrap
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <script src="./js/articulos.js"></script>
+</body>
+</html>
